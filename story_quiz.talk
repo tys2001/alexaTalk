@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<talk>
+	<intent name="AMAZON.HelpIntent">help</intent>
+	<intent name="AMAZON.CancelIntent">cancel</intent>
+	<intent name="AMAZON.StopIntent">stop</intent>
+	<intent name="YesIntent">yes</intent>
+	<intent name="NoIntent">no</intent>
+	<intent name="NextIntent">next</intent>
+	<intent name="BackIntent">back</intent>
+	<intent name="RepeatIntent">repeat</intent>
+	
+	<state id="init" nextid="init_ask">
+		<content>
+			こんにちは。私は、童話を話す、カタリベくんです。
+		</content>
+	</state>
+
+	<state id="init_ask" nextid="_ask">
+		<content>昔話「桃太郎」を聞きますか？</content>
+		<response answer="yes" nextid="story01">分かりました。今から「桃太郎」をお話ししますね。</response>
+		<response answer="no">分かりました。スキルを終了します。また昔話が聞きたくなったら呼んでくださいね。</response>
+		<response answer="other" nextid="init_ask">分かりません。「はい」か「いいえ」で答えてください。</response>
+	</state>
+
+	<state id="story01" nextid="story01_ask">
+		<content>
+			むかしむかし、あるところに、おじいさんとおばあさんが住んでいました。
+			おじいさんは山へ芝刈りに、おばあさんは川へせんたくに行きました。
+			おばあさんが川でせんたくをしていると、ドンブラコ、ドンブラコと、大きな桃が流れてきました。
+			「おや、これは良いおみやげになるわ」
+			おばあさんは大きな桃をひろいあげて、家に持ち帰りました。そして、おじいさんとおばあさんが桃を食べようと桃を切ってみると、なんと中から元気の良い男の赤ちゃんが飛び出してきました。
+			「これはきっと、神さまがくださったにちがいない」
+			子どものいなかったおじいさんとおばあさんは、大喜びです。
+			桃から生まれた男の子を、おじいさんとおばあさんは桃太郎と名付けました。
+		</content>
+	</state>
+
+	<state id="story01_ask" nextid="_ask">
+		<content>進みますか？</content>
+		<response answer="yes" nextid="story02">次へ進みます。</response>
+		<response answer="next" nextid="story02">次へ進みます。</response>
+		<response answer="repeat" nextid="story01">もう一度繰り返します。</response>
+		<response answer="back" nextid="story01_ask">まだ始まりなので、戻れません。</response>
+		<response answer="other" nextid="story01_ask">分かりません。「次」、「前」、「もう一回」で答えてください。</response>
+	</state>
+	
+	<state id="story02" nextid="story02_ask">
+		<content>
+			桃太郎はスクスク育って、やがて強い男の子になりました。
+			そしてある日、桃太郎が言いました。
+			「ぼく、鬼ヶ島(おにがしま)へ行って、わるい鬼を退治します」
+			おばあさんにきび団子を作ってもらうと、鬼ヶ島へ出かけました。
+
+			旅の途中で、イヌに出会いました。
+			「桃太郎さん、どこへ行くのですか？」
+			「鬼ヶ島へ、鬼退治に行くんだ」
+			「それでは、お腰に付けたきび団子を１つ下さいな。おともしますよ」
+			イヌはきび団子をもらい、桃太郎のおともになりました。
+
+			そして、こんどはサルに出会いました。
+			「桃太郎さん、どこへ行くのですか？」
+			「鬼ヶ島へ、鬼退治に行くんだ」
+			「それでは、お腰に付けたきび団子を１つ下さいな。おともしますよ」
+
+			そしてこんどは、キジに出会いました。
+			「桃太郎さん、どこへ行くのですか？」
+			「鬼ヶ島へ、鬼退治に行くんだ」
+			「それでは、お腰に付けたきび団子を１つ下さいな。おともしますよ」
+			こうして、イヌ、サル、キジの仲間を手に入れた桃太郎は、ついに鬼ヶ島へやってきました。
+		</content>
+	</state>
+
+	<state id="story02_ask" nextid="_ask">
+		<content>進みますか？</content>
+		<response answer="yes" nextid="story10">次へ進みます。</response>
+		<response answer="next" nextid="story10">次へ進みます。</response>
+		<response answer="repeat" nextid="story02">もう一度繰り返します。</response>
+		<response answer="back" nextid="story01">前へ戻ります。</response>
+		<response answer="other" nextid="story02_ask">分かりません。「次」か「前」か「もう一回」で答えてください。</response>
+	</state>
+	
+<!--	<state type="tell" id="story10" nextid="story10_ask"> -->
+	<state id="story10" nextid="story03_ask">
+		<content>
+			鬼ヶ島では、鬼たちが近くの村からぬすんだ宝物やごちそうをならべて、酒盛りの真っ最中です。
+			「みんな、ぬかるなよ。それ、かかれ！」
+			イヌは鬼のおしりにかみつき、サルは鬼のせなかをひっかき、キジはくちばしで鬼の目をつつきました。
+			そして桃太郎も、刀をふり回して大あばれです。
+
+			とうとう鬼の親分が、
+			「まいったぁ、まいったぁ。こうさんだ、助けてくれぇ」
+			と、手をついてあやまりました。
+			
+			桃太郎とイヌとサルとキジは、鬼から取り上げた宝物をくるまにつんで、元気よく家に帰りました。
+			おじいさんとおばあさんは、桃太郎の無事な姿を見て大喜びです。
+			そして三人は、たからもののおかげでしあわせにくらしましたとさ。
+			めでたし、めでたし。
+		</content>
+	</state>
+
+	<state id="story03_ask" nextid="_ask">
+		<content>次は問題です。進みますか？</content>
+		<response answer="yes" nextid="story11">問題です。</response>
+		<response answer="next" nextid="story11">問題です。</response>
+		<response answer="repeat" nextid="story03">もう一度繰り返します。</response>
+		<response answer="back" nextid="story02">前へ戻ります。</response>
+		<response answer="other" nextid="story03_ask">分かりません。「次」か「前」か「もう一回」で答えてください。</response>
+	</state>
+	
+	<state id="story11" nextid="story04_ask">
+		<content>
+			桃太郎の仲間は、イヌとサルとキジでしたが、桃太郎の好きな食べ物はなんでしたか？
+		</content>
+	</state>
+
+	<state id="story04_ask" nextid="_ask">
+		<content>シンキングタイムは５秒です。。。。。。。。。。。問題の答えを元気よく叫んでください。</content>
+		<response answer="other" nextid="finalanswer"></response>
+	</state>	
+	
+	<state id="finalanswer" nextid="_ask">
+		<content>ファイナルアンサー？</content>
+		<response answer="yes" nextid="story12">いいでしょう。</response>
+		<response answer="no" nextid="story11">では、問題をもう一度。</response>
+		<response answer="other" nextid="story12">いいでしょう。</response>
+	</state>
+	
+	<state id="story12" nextid="story10_ask">
+		<content>
+			正解を言います。
+			問題の答えは、バンバンジーです。
+	
+			正解しましたか？
+			ふふふ、簡単でしたか？
+			次はもっと難しい問題を準備しますね。
+		</content>
+	</state>
+
+	<state id="story10_ask" nextid="_ask">
+		<content>「桃太郎」、面白かったですか？</content>
+		<response answer="yes">楽しんでもらえて、私もうれしいです。ぜひ、また呼んでくださいね。</response>
+		<response answer="no">そうですか。次は頑張るので、また呼んでくださいね。</response>
+		<response answer="other" nextid="story10_ask">分かりません。「はい」か「いいえ」で答えてください。</response>
+	</state>
+	
+	<state id="help" nextid="_continue">
+		<content>
+			ヘルプです。
+		</content>
+	</state>
+	<state id="cancel" nextid="_return">
+		<content>
+			取り消します。
+		</content>
+	</state>
+	<state id="stop" nextid="_end">
+		<content>
+			スキルを終了します。
+		</content>
+	</state>
+</talk>
